@@ -80,7 +80,7 @@ src/
 - Nodemailer (Email Notifications)
 ---
 
-### Key APIs Implemented
+### Key APIs Implemented [Postman]
 ### Auth
 - POST /api/auth/register
 - POST /api/auth/login
