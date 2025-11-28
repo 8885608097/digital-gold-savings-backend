@@ -5,39 +5,39 @@ The system includes authentication, wallet management, gold transactions, KYC ve
 
 ---
 
-## 🚀 Features
+##  Features
 
-### 🔐 Authentication & Security
+###  Authentication & Security
 - User Signup / Login
 - JWT-based Authentication
 - Password Hashing using bcrypt
 - Role-based Access (User / Admin)
 
-### 💰 Wallet Management
+###  Wallet Management
 - Add Money to Wallet
 - Deduct Balance during Gold Purchase
 - Wallet History Tracking
 
-### 🪙 Gold Management
+###  Gold Management
 - Buy Gold (Live Price Integration if added)
 - Sell Gold
 - Gold Holdings Summary
 - Gold Holding History
 
-### 🧾 Invoices
+###  Invoices
 - Auto-generate invoices for each transaction
 - Download / View stored invoices
 
-### 📂 KYC Management
+###  KYC Management
 - Upload KYC documents
 - Admin Approval / Rejection
 
-### 📝 Savings Plans
+###  Savings Plans
 - Create Savings Plans
 - Auto-debit from wallet (if enabled)
 - Track user’s gold savings
 
-### 🛠 Admin Features
+###  Admin Features
 - View All Users
 - Approve KYC
 - View Gold Transactions
@@ -45,5 +45,18 @@ The system includes authentication, wallet management, gold transactions, KYC ve
 
 ---
 
-## 🧱 Folder Structure
+##  Folder Structure
+src/
+│
+├── app.js
+├── index.js
+│
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── services/
+├── utils/
+├── invoices/
+└── jobs/
 
