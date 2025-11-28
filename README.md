@@ -1,7 +1,7 @@
 # Digital Gold Savings Backend (Node.js + Express + MongoDB)
 
-This is the backend service for **Digital Gold Savings Platform**, where users can securely buy, sell, store, and track digital gold.  
-The system includes authentication, wallet management, gold transactions, KYC verification, invoices, savings plans, and admin modules.
+This backend powers the Digital Gold Savings Platform, enabling users to create accounts, complete KYC verification, manage wallet funds, buy and sell digital gold at live market rates, set up monthly savings plans, and track their gold holdings.
+The system includes secure authentication, real-time gold rate integration, wallet operations, gold transactions, KYC upload & approval, automated savings (EMI), invoices, transaction history, admin panel functionality, and audit logging.
 
 ---
 
