@@ -19,30 +19,39 @@ The system includes authentication, wallet management, gold transactions, KYC ve
 - Wallet History Tracking
 
 ###  Gold Management
-- Buy Gold (Live Price Integration if added)
+- Buy Gold (Real-time Gold Rate Integration)
 - Sell Gold
-- Gold Holdings Summary
-- Gold Holding History
+- Gold Holdings Overview
+- Gold Transaction History
+
+###  KYC Verification
+- Upload KYC Documents (Aadhaar Front/Back, PAN, Passport etc.)
+- Store File URLs in DB
+- Admin Approve / Reject KYC
+- KYC Status API
+
+###  Savings Plans (EMI / Auto-Debit)
+- Create Monthly Savings Plan
+- Auto-debit using Cron Jobs
+- EMI Payment Tracking
+- Savings Summary & History
 
 ###  Invoices
 - Auto-generate invoices for each transaction
-- Download / View stored invoices
+- View / Download invoices
+- Store invoice metadata in DB
 
-###  KYC Management
-- Upload KYC documents
-- Admin Approval / Rejection
+###  Admin Dashboard
+- Fetch All Users
+- Approve / Reject KYC
+- Approve / Reject Savings EMI
+- View All Transactions
+- Admin-only role-based API access
 
-###  Savings Plans
-- Create Savings Plans
-- Auto-debit from wallet (if enabled)
-- Track user’s gold savings
-
-###  Admin Features
-- View All Users
-- Approve KYC
-- View Gold Transactions
-- Dashboard APIs
-
+###  Gold Rate Integration
+- Real-time Gold Rate API
+- Fallback to Last Saved Rate if API Fails
+- Cached Gold Rate Fetching
 ---
 
 ##  Folder Structure
@@ -59,4 +68,39 @@ src/
 ├── utils/
 ├── invoices/
 └── jobs/
+---
+
+### Tech Stack
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- Multer (File Uploads)
+- JWT Authentication
+- Cron Jobs
+- Nodemailer (Email Notifications)
+---
+
+### Key APIs Implemented
+### Auth
+- POST /api/auth/register
+- POST /api/auth/login
+### Wallet
+- POST /api/wallet/add
+- GET /api/wallet/balance
+### Gold
+- POST /api/gold/buy
+- POST /api/gold/sell
+### KYC
+- POST /api/kyc/upload
+- GET /api/kyc/status
+- POST /api/kyc/:kycId/approve
+- POST /api/kyc/:kycId/reject
+### Savings
+- POST /api/savings/create
+- GET /api/savings/history
+### Transactions
+- GET /api/transactions/all
+---
+
+
 
