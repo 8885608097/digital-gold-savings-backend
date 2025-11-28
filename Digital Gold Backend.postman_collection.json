@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "4b170585-9053-4d6d-9a2c-8fd2db1e842f",
+		"name": "Digital Gold Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49650940",
+		"_collection_link": "https://shashank2181-5239298.postman.co/workspace/Shashank's-Workspace~720563d4-7c25-4b40-83ae-fbad2210711c/collection/49650940-4b170585-9053-4d6d-9a2c-8fd2db1e842f?action=share&source=collection_link&creator=49650940"
+	},
+	"item": [
+		{
+			"name": "User Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response;\r",
+							"\r",
+							"try {\r",
+							"    response = pm.response.json();\r",
+							"} catch (e) {\r",
+							"    console.log(\"Response is not JSON\");\r",
+							"}\r",
+							"\r",
+							"if (response && response.token) {\r",
+							"    pm.environment.set(\"token\", response.token);\r",
+							"    console.log(\"Token saved to environment!\");\r",
+							"} else {\r",
+							"    console.log(\"No token found in response\");\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Shashank\",\r\n  \"email\": \"shashannk@test.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"password\": \"mypassword\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"shashannk@test.com\",\r\n  \"password\": \"mypassword\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Money",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 5000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/wallet/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"wallet",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wallet balance",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"wallet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buy Gold",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amountINR\": 5000\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/gold/buy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"gold",
+						"buy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sell Gold",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"grams\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/gold/sell",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"gold",
+						"sell"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "transactions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KYC upload",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "aadharFront",
+							"description": "upload image",
+							"type": "file",
+							"src": "/C:/Users/Shashank/OneDrive/Documents/aaaaa.pdf"
+						},
+						{
+							"key": "aadharback",
+							"description": "upload image",
+							"type": "file",
+							"src": "/C:/Users/Shashank/OneDrive/Documents/aaaaa.pdf"
+						},
+						{
+							"key": "pan",
+							"type": "file",
+							"src": "/C:/Users/Shashank/OneDrive/Documents/7E2-Shashank-BEEE.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/kyc/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"kyc",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KYC Status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjgyODExMDBhYWFmMzFiYzI0ZDgxNSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY0MjQ0MTU5LCJleHAiOjE3NjQ4NDg5NTl9.RpNMZ-fZRFMs_rTDF3Z2VJFjc0a2HvKGkKG1pp-Wez0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/api/kyc/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"kyc",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KYC Approve",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
